@@ -1,5 +1,16 @@
+#!/usr/bin/env zsh
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+#->prompt color/text
+autoload -U colors && colors
+PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+setopt autocd	
+stty stop undef	
+#->history
+HISTSIZE=30000
+SAVEHIST=30000
+HISTFILE="${ZDOTDIR:-$HOME/.config/zsh}/history"
+
 ZSH_DISABLE_COMPFIX="true"
 # Path to your oh-my-zsh installation.
 export ZSH="/home/alex/.oh-my-zsh"

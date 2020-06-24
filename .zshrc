@@ -2,17 +2,13 @@
 
 #->prompt color/text
 autoload -U colors && colors
-
 # Load version control information
 autoload -Uz vcs_info
 precmd() { vcs_info }
-
-# Format the vcs_info_msg_0_ variable
-zstyle ':vcs_info:git:*' formats '%b'
- 
-# Set up the prompt (with git branch name)
+zstyle ':vcs_info:git:*' formats '(%b)'
 setopt PROMPT_SUBST
-PROMPT='${vcs_info_msg_0_} %B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b'
+PROMPT='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[cyan]%}%~%{$fg[blue]%}${vcs_info_msg_0_}%{$fg[red]%}]%{$reset_color%}$%b'
+
 setopt autocd	
 stty stop undef	
 #->history
@@ -22,7 +18,7 @@ HISTFILE="${ZDOTDIR:-$HOME/.config/zsh}/history"
 
 ZSH_DISABLE_COMPFIX="true"
 # Path to your oh-my-zsh installation.
-export ZSH="/home/alex/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export TERM="xterm-256color"
 ZSH_THEME="alanpeabody"
 

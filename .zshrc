@@ -14,7 +14,7 @@ stty stop undef
 #->history
 HISTSIZE=30000
 SAVEHIST=30000
-HISTFILE="${ZDOTDIR:-$HOME/.config/zsh}/history"
+HISTFILE="$HOME/.zsh_history"
 
 ZSH_DISABLE_COMPFIX="true"
 # Path to your oh-my-zsh installation.
